@@ -29,8 +29,8 @@ namespace zohoprojects.api
         /// <summary>
         /// It is the API base URL for the Zoho projects service.
         /// </summary>
-        public static string baseurl = "http://mani-1649.csez.zohocorpin.com:9090/restapi";
-        //public static string baseurl = "https://projectsapi.zoho.com/restapi";
+        
+        public static string baseurl = "https://projectsapi.zoho.com/restapi";
         /// <summary>
         /// Initializes static members of the <see cref="Api" /> class.
         /// </summary>
