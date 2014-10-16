@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D7E8C0E3-03D5-4E22-809C-58F89FA91099}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>zohoprojects</RootNamespace>
+    <AssemblyName>zohoprojects</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.30506.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.TestableMultipartStreamProviders">
+      <HintPath>..\packages\System.Net.Http.TestableMultipartStreamProviders.1.0.0\lib\net45\System.Net.Http.TestableMultipartStreamProviders.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="SystemInterface">
+      <HintPath>..\packages\SystemWrapper-sn.0.5.3\lib\net40\SystemInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="SystemWrapper">
+      <HintPath>..\packages\SystemWrapper-sn.0.5.3\lib\net40\SystemWrapper.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="api\Api.cs" />
+    <Compile Include="api\BugsApi.cs" />
+    <Compile Include="api\DashboardApi.cs" />
+    <Compile Include="api\DocumentsApi.cs" />
+    <Compile Include="api\EventsApi.cs" />
+    <Compile Include="api\ForumsApi.cs" />
+    <Compile Include="api\MilestonesApi.cs" />
+    <Compile Include="api\PortalsApi.cs" />
+    <Compile Include="api\ProjectsApi.cs" />
+    <Compile Include="api\TasklistsApi.cs" />
+    <Compile Include="api\TasksApi.cs" />
+    <Compile Include="api\TimesheetsApi.cs" />
+    <Compile Include="api\UsersApi.cs" />
+    <Compile Include="exception\ProjectsException.cs" />
+    <Compile Include="model\Activity.cs" />
+    <Compile Include="model\Bug.cs" />
+    <Compile Include="model\Buglog.cs" />
+    <Compile Include="model\Category.cs" />
+    <Compile Include="model\Classification.cs" />
+    <Compile Include="model\Comment.cs" />
+    <Compile Include="model\Count.cs" />
+    <Compile Include="model\Date.cs" />
+    <Compile Include="model\Details.cs" />
+    <Compile Include="model\Document.cs" />
+    <Compile Include="model\DocVersion.cs" />
+    <Compile Include="model\Error.cs" />
+    <Compile Include="model\Event.cs" />
+    <Compile Include="model\Folder.cs" />
+    <Compile Include="model\Forum.cs" />
+    <Compile Include="model\Generallog.cs" />
+    <Compile Include="model\Link.cs" />
+    <Compile Include="model\Locale.cs" />
+    <Compile Include="model\Log.cs" />
+    <Compile Include="model\Milestone.cs" />
+    <Compile Include="model\Module.cs" />
+    <Compile Include="model\Owner.cs" />
+    <Compile Include="model\Participant.cs" />
+    <Compile Include="model\Portal.cs" />
+    <Compile Include="model\Project.cs" />
+    <Compile Include="model\Reproducible.cs" />
+    <Compile Include="model\Settings.cs" />
+    <Compile Include="model\Severity.cs" />
+    <Compile Include="model\Status.cs" />
+    <Compile Include="model\Task.cs" />
+    <Compile Include="model\Tasklist.cs" />
+    <Compile Include="model\Tasklog.cs" />
+    <Compile Include="model\Timelog.cs" />
+    <Compile Include="model\Timelogs.cs" />
+    <Compile Include="model\UrlString.cs" />
+    <Compile Include="model\User.cs" />
+    <Compile Include="parser\BugParser.cs" />
+    <Compile Include="parser\DashboardParser.cs" />
+    <Compile Include="parser\DocumentParser.cs" />
+    <Compile Include="parser\ErrorParser.cs" />
+    <Compile Include="parser\EventParser.cs" />
+    <Compile Include="parser\ForumParser.cs" />
+    <Compile Include="parser\MilestoneParser.cs" />
+    <Compile Include="parser\PortalParser.cs" />
+    <Compile Include="parser\ProjectParser.cs" />
+    <Compile Include="parser\TasklistParser.cs" />
+    <Compile Include="parser\TaskParser.cs" />
+    <Compile Include="parser\TimesheetParser.cs" />
+    <Compile Include="parser\UserParser.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="service\ZohoProjects.cs" />
+    <Compile Include="util\ZohoHttpClient.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
