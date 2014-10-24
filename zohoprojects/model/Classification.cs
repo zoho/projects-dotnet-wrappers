@@ -33,5 +33,15 @@ namespace zohoprojects.model
         /// </summary>
         /// <value>The type.</value>
         public string type { get; set; }
+        /// <summary>
+        /// Gets or sets the classification_id.
+        /// </summary>
+        /// <value>The classification_id.</value>
+        public string classification_id { get; set; }
+        /// <summary>
+        /// Gets or sets the classification_name.
+        /// </summary>
+        /// <value>The classification_name.</value>
+        public string classification_name { get; set; }
     }
 }

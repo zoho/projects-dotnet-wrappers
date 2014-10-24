@@ -36,6 +36,11 @@ namespace zohoprojects.parser
         /// <value>The response.</value>
         public string response { get; set; }
         /// <summary>
+        /// Gets or sets the comments.
+        /// </summary>
+        /// <value>The comments.</value>
+        public List<Comment> comments { get; set; }
+        /// <summary>
         /// Gets the task.
         /// </summary>
         /// <param name="responce">The responce.</param>
@@ -49,5 +54,18 @@ namespace zohoprojects.parser
             return task;
         }
 
+        /// <summary>
+        /// Gets the comment.
+        /// </summary>
+        /// <param name="response">The response.</param>
+        /// <returns>Comment.</returns>
+        public static Comment getComment(HttpResponseMessage response)
+        {
+            var comment = new Comment();
+            var comments = response.Content.ReadAsAsync<TaskParser>().Result.comments;
+            foreach (var tempComment in comments)
+                comment = tempComment;
+            return comment;
+        }
     }
 }

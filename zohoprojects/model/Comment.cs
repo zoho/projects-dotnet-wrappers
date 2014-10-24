@@ -55,6 +55,32 @@ namespace zohoprojects.model
         /// <value>The post_date_long.</value>
         public long post_date_long { get; set; }
         /// <summary>
+        /// Gets or sets the created_time_long.
+        /// </summary>
+        /// <value>The created_time_long.</value>
+        public long created_time_long { get; set; }
+        /// <summary>
+        /// Gets or sets the added_by.
+        /// </summary>
+        /// <value>The added_by.</value>
+        public string added_by { get; set; }
+        /// <summary>
+        /// Gets or sets the added_person.
+        /// </summary>
+        /// <value>The added_person.</value>
+        public string added_person { get; set; }
+        /// <summary>
+        /// Gets or sets the created_time_format.
+        /// </summary>
+        /// <value>The created_time_format.</value>
+        public string created_time_format { get; set; }
+        /// <summary>
+        /// Gets or sets the created_time.
+        /// </summary>
+        /// <value>The created_time.</value>
+        public string created_time { get; set; }
+
+        /// <summary>
         /// To the parameter map.
         /// </summary>
         /// <returns>Dictionary{System.ObjectSystem.Object}.</returns>

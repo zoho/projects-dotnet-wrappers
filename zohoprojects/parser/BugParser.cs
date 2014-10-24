@@ -40,6 +40,16 @@ namespace zohoprojects.parser
         /// <value>The response.</value>
         public string response { get; set; }
         /// <summary>
+        /// Gets or sets the defaultfields.
+        /// </summary>
+        /// <value>The defaultfields.</value>
+        public Defaultfields defaultfields { get; set; }
+        /// <summary>
+        /// Gets or sets the customfields.
+        /// </summary>
+        /// <value>The customfields.</value>
+        public List<Customfield> customfields { get; set; }
+        /// <summary>
         /// Gets the bug.
         /// </summary>
         /// <param name="response">The response.</param>

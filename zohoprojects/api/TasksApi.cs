@@ -94,6 +94,26 @@ namespace zohoprojects.api
             var response = ZohoHttpClient.get(url, getQueryParameters());
             return TaskParser.getTask(response);
         }
+
+        /// <summary>
+        /// Lists the sub tasks of the specified task.
+        /// </summary>
+        /// <param name="project_id">The project_id is the identifier of the project.</param>
+        /// <param name="task_id">The task_id is the identifier of the task.</param>
+        /// <param name="parameters">The parameters is the Dictionary object which conatins the following requested parameters to refine the list.<br></br>
+        /// <table>
+        /// <tr><td>index</td><td>int</td><td>index number of the task</td></tr>
+        /// <tr><td>range</td><td>int</td><td>Range of the tasks</td></tr>
+        /// </table>
+        /// </param>
+        /// <returns>Tasks list object.</returns>
+        public List<Task> GetSubTasks(string project_id, string task_id, Dictionary<object, object> parameters)
+        {
+            string url = getBaseUrl() + "/projects/" + project_id + "/tasks/" + task_id + "/subtasks/";
+            var response = ZohoHttpClient.get(url, getQueryParameters(parameters));
+            return response.Content.ReadAsAsync<TaskParser>().Result.tasks;
+        }
+
         /// <summary>
         /// Creates a tsk.
         /// </summary>
@@ -116,6 +136,8 @@ namespace zohoprojects.api
             var response = ZohoHttpClient.post(url, getQueryParameters(new_task_info.toParamMap()));
             return TaskParser.getTask(response);
         }
+
+
         /// <summary>
         /// Updates the task in the specified project.
         /// </summary>
@@ -153,5 +175,51 @@ namespace zohoprojects.api
             var response = ZohoHttpClient.delete(url, getQueryParameters());
             return response.Content.ReadAsAsync<TaskParser>().Result.response;
         }
+        /// <summary>
+        /// Gets the comments of the specified task.
+        /// </summary>
+        /// <param name="project_id">The project_id is the identifier of the project.</param>
+        /// <param name="task_id">The task_id is the identifier of the task.</param>
+        /// <returns>Comments list.</returns>
+        public List<Comment> GetComments(string project_id,string task_id)
+        {
+            string url = getBaseUrl() + "/projects/" + project_id + "/tasks/" + task_id + "/comments/";
+            var response = ZohoHttpClient.get(url, getQueryParameters());
+            return response.Content.ReadAsAsync<TaskParser>().Result.comments;
+        }
+
+        /// <summary>
+        /// Adds the comment.
+        /// </summary>
+        /// <param name="project_id">The project_id.</param>
+        /// <param name="task_id">The task_id.</param>
+        /// <param name="comment">The comment object which contains the following attributes as mandatory.<br></br>
+        ///  <table>
+        /// <tr><td>content*</td><td>string</td><td>comment description.</td></tr>
+        /// </table>
+        /// </param>
+        /// <returns>Comment object.</returns>
+        public Comment AddComment(string project_id,string task_id,Comment comment)
+        {
+            string url = getBaseUrl() + "/projects/" + project_id + "/tasks/" + task_id + "/comments/";
+            var response = ZohoHttpClient.post(url,getQueryParameters(comment.toParamMap()));
+            return TaskParser.getComment(response);
+        }
+
+        /// <summary>
+        /// Deletes the commentn of the specified task.
+        /// </summary>
+        /// <param name="project_id">The project_id is the identifier of the project.</param>
+        /// <param name="task_id">The task_id is the identifier of the task.</param>
+        /// <param name="comment_id">The comment_id is the identifier of the task which is going to be deleted.</param>
+        /// <returns>System.String.</returns>
+        public string DeleteComment(string project_id,string task_id,string comment_id)
+        {
+            string url = getBaseUrl() + "/projects/" + project_id + "/tasks/" + task_id + "/comments/" + comment_id + "/";
+            var response = ZohoHttpClient.delete(url, getQueryParameters());
+            return response.Content.ReadAsAsync<TasklistParser>().Result.response;
+        }
+
     }
 }
+

@@ -55,6 +55,26 @@ namespace zohoprojects.model
         /// <value>The posted_time_long.</value>
         public object posted_time_long { get; set; }
         /// <summary>
+        /// Gets or sets a value indicating whether this <see cref="Status"/> is isdefault.
+        /// </summary>
+        /// <value><c>true</c> if isdefault; otherwise, <c>false</c>.</value>
+        public bool isdefault { get; set; }
+        /// <summary>
+        /// Gets or sets the status_name.
+        /// </summary>
+        /// <value>The status_name.</value>
+        public string status_name { get; set; }
+        /// <summary>
+        /// Gets or sets the status_id.
+        /// </summary>
+        /// <value>The status_id.</value>
+        public string status_id { get; set; }
+        /// <summary>
+        /// Gets or sets a value indicating whether this <see cref="Status"/> is closed.
+        /// </summary>
+        /// <value><c>true</c> if closed; otherwise, <c>false</c>.</value>
+        public bool closed { get; set; }
+        /// <summary>
         /// To the parameter map.
         /// </summary>
         /// <returns>Dictionary{System.ObjectSystem.Object}.</returns>
@@ -65,5 +85,6 @@ namespace zohoprojects.model
                 requestBody.Add("content", content);
             return requestBody;
         }
+
     }
 }

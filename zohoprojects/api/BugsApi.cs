@@ -116,6 +116,7 @@ namespace zohoprojects.api
         /// <tr><td>due_date</td><td>String [MM-DD-YYYY]</td><td>Due date of the bug.</td></tr>
         /// <tr><td>module_id</td><td>Long</td><td> Module ID of the project.</td></tr>
         /// <tr><td>severity_id</td><td>Long</td><td>Severity ID of the project.</td></tr>
+        /// <tr><td>status_id</td><td>Long</td><td>Status ID of the bug.</td></tr>
         /// <tr><td>reproducible_id</td><td>Long</td><td> Reproducible ID of the project.</td></tr>
         /// </table>
         /// </param>
@@ -139,6 +140,28 @@ namespace zohoprojects.api
             string url = getBaseUrl() + "/projects/" + project_id + "/bugs/" + bug_id + "/";
             var response = ZohoHttpClient.delete(url, getQueryParameters());
             return response.Content.ReadAsAsync<BugParser>().Result.response;
+        }
+        /// <summary>
+        /// Gets the all defaultfields for the specified project.
+        /// </summary>
+        /// <param name="project_id">The project_id.</param>
+        /// <returns>Defaultfields.</returns>
+        public Defaultfields GetDefaultfields(string project_id)
+        {
+            string url = getBaseUrl() + "/projects/" + project_id + "/defaultfields/";
+            var responce = ZohoHttpClient.get(url, getQueryParameters());
+            return responce.Content.ReadAsAsync<BugParser>().Result.defaultfields;
+        }
+        /// <summary>
+        /// Gets the customfields for the specified project.
+        /// </summary>
+        /// <param name="project_id">The project_id.</param>
+        /// <returns>List{Customfield}.</returns>
+        public List<Customfield> GetCustomfields(string project_id)
+        {
+            string url = getBaseUrl() + "/projects/" + project_id + "/customfields/";
+            var responce = ZohoHttpClient.get(url, getQueryParameters());
+            return responce.Content.ReadAsAsync<BugParser>().Result.customfields;
         }
     }
 }

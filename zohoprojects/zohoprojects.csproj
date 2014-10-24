@@ -9,8 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>zohoprojects</RootNamespace>
     <AssemblyName>zohoprojects</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -38,7 +40,7 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.5\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Owin">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
@@ -85,6 +87,8 @@
     <Compile Include="model\Bug.cs" />
     <Compile Include="model\Buglog.cs" />
     <Compile Include="model\Category.cs" />
+    <Compile Include="model\Customfield.cs" />
+    <Compile Include="model\Defaultfields.cs" />
     <Compile Include="model\Classification.cs" />
     <Compile Include="model\Comment.cs" />
     <Compile Include="model\Count.cs" />
@@ -105,6 +109,7 @@
     <Compile Include="model\Owner.cs" />
     <Compile Include="model\Participant.cs" />
     <Compile Include="model\Portal.cs" />
+    <Compile Include="model\Priority.cs" />
     <Compile Include="model\Project.cs" />
     <Compile Include="model\Reproducible.cs" />
     <Compile Include="model\Settings.cs" />
@@ -135,6 +140,7 @@
     <Compile Include="util\ZohoHttpClient.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />

@@ -33,5 +33,15 @@ namespace zohoprojects.model
         /// </summary>
         /// <value>The type.</value>
         public string type { get; set; }
+        /// <summary>
+        /// Gets or sets the severity_id.
+        /// </summary>
+        /// <value>The severity_id.</value>
+        public string severity_id { get; set; }
+        /// <summary>
+        /// Gets or sets the severity_name.
+        /// </summary>
+        /// <value>The severity_name.</value>
+        public string severity_name { get; set; }
     }
 }

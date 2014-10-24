@@ -168,6 +168,9 @@ namespace zohoprojects.model
             if (reproducible != null)
                 if (reproducible.id > 0)
                     requestBody.Add("reproducible_id", reproducible.id);
+            if (status != null)
+                if ((long)status.id > 0)
+                    requestBody.Add("status_id", status.id);
             return requestBody;
         }
     }

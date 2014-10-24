@@ -78,11 +78,9 @@ namespace zohoprojects.api
         {
             string url = getBaseUrl() + "/projects/" + project_id + "/forums/";
             var response=new HttpResponseMessage();
-                var filePath = new string[] { new_forum_info.uploadfile };
-                var file = new KeyValuePair<string, string[]>("uploadfile", filePath);
-                 response = ZohoHttpClient.post(url, getQueryParameters(), new_forum_info.toParamMap(), file);
-            
-            
+            var filePath = new string[] { new_forum_info.uploadfile };
+            var file = new KeyValuePair<string, string[]>("uploadfile", filePath);
+            response = ZohoHttpClient.post(url, getQueryParameters(), new_forum_info.toParamMap(), file);
             return ForumParser.getForum(response);
         }
         /// <summary>
@@ -101,14 +99,11 @@ namespace zohoprojects.api
         /// <returns>Forum object.</returns>
         public Forum Update(string project_id,Forum update_forum_info)
         {
-            string url = getBaseUrl() + "/projects/" + project_id + "/forums/" + update_forum_info.id + "/";
-            
-            
+                string url = getBaseUrl() + "/projects/" + project_id + "/forums/" + update_forum_info.id + "/";
                 var filePath = new string[] { update_forum_info.uploadfile };
                 var file = new KeyValuePair<string, string[]>("uploadfile", filePath);
-
                 var response = ZohoHttpClient.post(url, getQueryParameters(), update_forum_info.toParamMap(), file);
-            return ForumParser.getForum(response);
+                return ForumParser.getForum(response);
         }
         /// <summary>
         /// Deletes the forum post.

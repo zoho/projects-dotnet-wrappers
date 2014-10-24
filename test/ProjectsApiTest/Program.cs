@@ -16,7 +16,6 @@ namespace ProjectsApiTest
             {
                 var service = new ZohoProjects();
                 service.initialize("{auth token}", "{portal id}");
-                //service.initialize("af118f731121105c95e525ebd178f6ec", "38418970");
                 var portalsApi = service.GetPortalsApi();
                 var portals = portalsApi.GetPortals();
                 foreach (var portal in portals)
@@ -93,7 +92,7 @@ namespace ProjectsApiTest
 
                 var milestonesApi = service.GetMilestonesApi();
                 var milestoneParameters=new Dictionary<object,object>();
-                parameters.Add("status", "notcompleted");
+                milestoneParameters.Add("status", "notcompleted");
                 var milestones = milestonesApi.GetMilestones(projectId, milestoneParameters);
                 foreach(var temp in milestones)
                 {
@@ -109,7 +108,7 @@ namespace ProjectsApiTest
                 {
                     name="new milestone",
                     start_date="06-12-2014",
-                    end_date="06-12-2014",
+                    end_date="12-12-2014",
                     flag="internal",
                     owner_id = "{ownerId}",
                 };
@@ -139,7 +138,7 @@ namespace ProjectsApiTest
 
                 var tasklistsApi = service.GetTasklistsApi();
                 var tasklistParameters = new Dictionary<object, object>();
-                parameters.Add("flag", "internal");
+                tasklistParameters.Add("flag", "internal");
                 var tasklists = tasklistsApi.GetTasklists(projectId, tasklistParameters);
                 foreach(var tempTasklist in tasklists)
                 {
@@ -212,12 +211,24 @@ namespace ProjectsApiTest
                 Console.WriteLine("id:{0},\nPriority:{1},\nname:{2}", updatedTask.id, updatedTask.priority, updatedTask.name);
                 var deleteTask = tasksApi.Delete(projectId, updatedTask.id.ToString());
                 Console.WriteLine(deleteTask);
+                var subTasks = tasksApi.GetSubTasks("{project_id}", "{tsk_id}", taskParameters);
+                foreach (var temptask in subTasks)
+                    Console.WriteLine("id:{0},\nPriority:{1},\n name:{2}", temptask.id, temptask.priority, temptask.name);
+                var comments = tasksApi.GetComments("{project_id}", "{task_id}");
+                foreach (var tempComment in comments)
+                    Console.WriteLine("Comment Id:{0},\n content:{1}",tempComment.id,tempComment.content);
+                var new_comment_info=new Comment(){
+                    content="newly added comment"
+                };
+                var newComment = tasksApi.AddComment("{project_id}", "{task_id}", new_comment_info);
+                Console.WriteLine("Comment Id:{0},\n content:{1}", newComment.id, newComment.content);
+                var deleteCommentMsg = tasksApi.DeleteComment("{project_id}", "{task_id}", newComment.id.ToString());
+                Console.WriteLine(deleteCommentMsg);
 
 //----------------------------------------------------BugsApi Test----------------------------------------------------------
                 
                  var bugsApi = service.GetBugsApi();
                 var bugParameters=new Dictionary<object,object>();
-                
                 var bugs = bugsApi.GetBugs(projectId,bugParameters);
                 var bugId = bugs[0].id;
                 var bug = bugsApi.Get(projectId, bugId.ToString());
@@ -239,6 +250,14 @@ namespace ProjectsApiTest
                 Console.WriteLine("updatedBug info\n bug id:{0},\nbug title:{1},bug description:{2}", updatedBug.id, updatedBug.title, updatedBug.description);
                 var deleteBug = bugsApi.Delete(projectId, updatedBug.id.ToString());
                 Console.WriteLine(deleteBug);
+                var customFields = bugsApi.GetCustomfields(projectId);
+                foreach (var tempCustomFields in customFields)
+                    Console.WriteLine("labelname:{0}, coloumn name:{1}", tempCustomFields.label_name, tempCustomFields.column_name);
+                var defaultFields = bugsApi.GetDefaultfields(projectId);
+                foreach(var status in defaultFields.status_deatils)
+                {
+                    Console.WriteLine("Status id:{0},\t status name:{1}", status.status_id, status.status_name);
+                }
 
 //----------------------------------------------------EventsApiTest-----------------------------------------
 
@@ -358,13 +377,13 @@ namespace ProjectsApiTest
                 var newCategory = forumsApi.AddCategory(projectId, newCategoryInfo);
                 Console.WriteLine("id:{0}\nname:{1}", newCategory.id, newCategory.name);
                 var commentsParams=new Dictionary<object,object>();
-                var comments = forumsApi.GetComments(projectId, forumId.ToString(), commentsParams);
+                var forumComments = forumsApi.GetComments(projectId, forumId.ToString(), commentsParams);
                 var newCommentInfo = new Comment()
                 {
                     content = "comment added throw api",
                 };
-                var newComment = forumsApi.AddComment(projectId, forumId.ToString(), newCommentInfo);
-                Console.WriteLine("new comment id:{0}\n content:{1}", newComment.id, newComment.content);
+                var newforumComment = forumsApi.AddComment(projectId, forumId.ToString(), newCommentInfo);
+                Console.WriteLine("new comment id:{0}\n content:{1}", newforumComment.id, newforumComment.content);
                 var newForumInfo = new Forum()
                 {
                     name="forum new",

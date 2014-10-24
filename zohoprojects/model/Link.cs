@@ -93,6 +93,10 @@ namespace zohoprojects.model
         /// </summary>
         /// <value>The user.</value>
         public UrlString user { get; set; }
-        
+        /// <summary>
+        /// Gets or sets the subtask.
+        /// </summary>
+        /// <value>The subtask.</value>
+        public UrlString subtask { get; set; }
     }
 }

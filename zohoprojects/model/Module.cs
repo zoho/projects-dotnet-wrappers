@@ -33,5 +33,15 @@ namespace zohoprojects.model
         /// </summary>
         /// <value>The type.</value>
         public string type { get; set; }
+        /// <summary>
+        /// Gets or sets the module_id.
+        /// </summary>
+        /// <value>The module_id.</value>
+        public string module_id { get; set; }
+        /// <summary>
+        /// Gets or sets the module_name.
+        /// </summary>
+        /// <value>The module_name.</value>
+        public string module_name { get; set; }
     }
 }
