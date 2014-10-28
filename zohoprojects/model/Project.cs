@@ -55,6 +55,11 @@ namespace zohoprojects.model
         /// <value>The status.</value>
         public string status { get; set; }
         /// <summary>
+        /// Gets or sets the template_id.
+        /// </summary>
+        /// <value>The template_id.</value>
+        public long template_id { get; set; }
+        /// <summary>
         /// Gets or sets the created_date.
         /// </summary>
         /// <value>The created_date.</value>
@@ -97,6 +102,8 @@ namespace zohoprojects.model
                 requestBody.Add("description", description);
             if (status != null & status!="")
                 requestBody.Add("status", status);
+            if (template_id >= 0 )
+                requestBody.Add("template_id", template_id);
             return requestBody;
         }
     }

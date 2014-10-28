@@ -78,6 +78,7 @@ namespace zohoprojects.api
         /// <table>
         /// <tr><td>name*</td><td>string</td><td>Name of the project</td></tr>
         /// <tr><td>description</td><td>string</td><td>Description of the project</td></tr>
+        /// <tr><td>template_id</td><td>Long</td><td>Template ID of the project.</td></tr>
         /// </table>
         /// </param>
         /// <returns>Project object .</returns>
