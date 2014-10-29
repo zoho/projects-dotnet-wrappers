@@ -12,7 +12,7 @@ To build the project from source, run the following command:
 	
 	$ git clone git@git:zoho/projects-dotnet-wrappers.git
 
-<Note:> NuGet is the package manager for Microsoft Visual Studio.
+Note: NuGet is the package manager for Microsoft Visual Studio.
 
 
 ## Documentation
@@ -79,7 +79,7 @@ To pass the newProjectInfo object as a parameter in the create() method, use the
 	
 	}
 
-<Note:> The newProject is the actual Project object here. It carries all the details of the newly created project from the projectsApi instance. 
+Note: The newProject is the actual Project object here. It carries all the details of the newly created project from the projectsApi instance. 
 
 ####Get Project details:
 
@@ -100,6 +100,7 @@ If there is any error encountered while calling the .Net wrappers of Zoho Projec
 	{
 		Console.WriteLine(e.Message);
         }
+        
 
 
 For a full set of examples, click [here](../../tree/master/test).
