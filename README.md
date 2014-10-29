@@ -50,7 +50,7 @@ The follwing sample code describes to how to create the instance of the Projects
 
 Now you are able to access the wrapper class methods by the instance projectsApi as shown below 
 
-### To Create a project:
+## To Create a project:
 
 To create a project you have to call the `create()` method of the projectsApi instance.
 For that you have to pass the Project object which contains the project information as a parameter and returns the Project object.
