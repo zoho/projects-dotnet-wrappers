@@ -1,61 +1,69 @@
 # ZohoProjects .Net Client Library
 
-The .Net library for intigrating with ZohoProjects
+The .Net library for integrating with the Zoho Projects API. Use this .Net wrapper to easily integrate Zoho Projects modules like portals, projects, milestones,tasklists, events etc. into your application.
 
 ## Installation
 
-Install the latest version of the library with the following commands:
+To install the ZohoProjects .Net Client Library, run the following command in [NuGet's](https://www.nuget.org/) console.  
 
-Use NuGet : [NuGet] (https://nuget.org) is a package manager for Visual Studio.
+$ Install -package ZohoProjects
 
-To install the ZohoBooks .Net Client Library, run the following command in the package Manager Console:
-
-	$ Install -package ZohoProjects
-
-If you would prefer to build it from source: 
+To build the project from source, run the following command: 
 	
 	$ git clone git@git:zoho/projects-dotnet-wrappers.git
 
+<Note:> NuGet is the package manager for Microsoft Visual Studio.
+
+
 ## Documentation
-Refer Api Documentation from [HERE](http://cms.zohocorp.com/export/zoho/projects/help/rest-api/portals-api.html)
+[API Reference](http://cms.zohocorp.com/export/zoho/projects/help/rest-api/portals-api.html)
 
 
 ## Usage 
 
-If you want to use all our Zoho Projects services API, you should have a valid authtoken which requires the Zoho username and password.
+In order to access the Zoho Projects APIs, users need to have a valid Zoho account and a valid Auth Token.
+ 
+###Sign up for a Zoho Account:
 
-How to generate authtoken ? [Refer from Here](http://cms.zohocorp.com/export/zoho/projects/help/rest-api/get-tickets-api.html)
-If you are having a valid `authtoken` , you are able to acess the ZohoProjects API Wrappers.
+For setting up a Zoho account, access the Zoho Projects [Sign Up](https://www.zoho.com/projects/zp-signup.html) page and enter the requisite details - email address and password.
+ 
+###Generate Auth Token:
+ 
+To generate the Auth Token, you need to send an authentication request to Zoho Accounts in a prescribed URL format. [Refer here](https://www.zoho.com/projects/help/rest-api/get-tickets-api.html) 
 
-How to use our wrapper classes?
-
-The following example of sample code describes the usage of the ZohoProjects .Net wrappers
-
-You have to use the following namespaces in your project to access the ZohoProjects API services
+###How to access the Zoho Projects APIs through .Net wrapper classes?
+ 
+Below is the sample code for accessing the Projects APIs through .Net wrapper classes. You can use the following namespaces in your project:
 
 	using zohoprojects.api;
 	using zohoprojects.model;
 	using zohoprojects.service;
 
-As a part of calling the wrapper class methods first you have to intialize the ZohoProjects services by passing your authtoken and portal id(on which portal you are working now)
+###Create Service API Instance:
+
+Create an instance of ZohoProjects and intialise the service by passing authtoken and poratal id.
+
+Sample code:
 
 	ZohoProjects service = new ZohoProjects();
 	service.initialize("{authtoken}", "{portal id}");
 
-From the initialised service, your able to create the instances for the individual Apis and from its you are able to acess the methods
+###.Net Wrappers - Sample
 
-The follwing sample code describes to how to create the instance of the ProjectsApi which allows you to get the list of projects and to get and update or delete the specified project.
+####List all Projects:
+
+If you wish to get the list of all projects from the portal, first you need to create the instance for the ProjectsApi, then call the GetProjects() method in the following format:
 
 	var projectsApi=service.GetProjectsApi();
+	var projects = projectsApi.GetProjects(parameters);
 
-Now you are able to access the wrapper class methods by the instance projectsApi as shown below 
+It returns the List of Project object as a response.
 
-## To Create a project:
+####Create a new Project:
 
-To create a project you have to call the `create()` method of the projectsApi instance.
-For that you have to pass the Project object which contains the project information as a parameter and returns the Project object.
+To create a new project for the specific portal, you need to call the create() method of the projectsApi instance. 
 
-The following shows the how to create project object with new project information
+Proceed with creating a new project by passing the project object, which contains the project information, as a parameter. It returns the project object as a response.
 
 	var newProjectInfo = new Project()
 	{
@@ -63,7 +71,7 @@ The following shows the how to create project object with new project informatio
 		description="description for new project"
 	 };
 
-The following line of code shows how to pass the new_info object as a parameter to the `create()`
+To pass the newProjectInfo object as a parameter in the create() method, use the following sample code:
 
 	try
 	{
@@ -71,27 +79,27 @@ The following line of code shows how to pass the new_info object as a parameter 
 	
 	}
 
-The newProject is the Project object which having the details of the newly created project by the projectsApi instance.
+<Note:> The newProject is the actual Project object here. It carries all the details of the newly created project from the projectsApi instance. 
 
-### To Get the details of specified project
+####Get Project details:
 
-If you want to get a particular project, you need to call `Get()` method by passing the project id as a parameter and it returns the Project object which contains the details of specified project id.
-The following peice of code desribes the how to call `Get()` method 
+In order to get the details of a particular project, you need to call the get() method by passing a projectId as parameter.
+
+It returns the Project object, which contains details of the specific project. See the sample code below:
 
 	try
 	{
 		var project = projectsApi.Get(projectId);
 	}
 		
-### Catch the exception
+####Catch Exceptions:
 
-When calling Zoho Projects API wrappers if there is any error then the respective class throws the ProjectsException.
-The ProjectsException is caught by the following way
+If there is any error encountered while calling the .Net wrappers of Zoho Projects API, the respective class will throw the ProjectsException. Use the below mentioned code to catch the ProjectsException:
 
 	catch(Exception e)
 	{
 		Console.WriteLine(e.Message);
-         }
+        }
 
 
-See [Here](../../tree/master/test) for more examples.
+For a full set of examples, click [here](../../tree/master/test).
