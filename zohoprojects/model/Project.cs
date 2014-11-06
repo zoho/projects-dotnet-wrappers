@@ -30,6 +30,11 @@ namespace zohoprojects.model
         /// <value>The identifier.</value>
         public long id { get; set; }
         /// <summary>
+        /// Gets or sets the id_string.
+        /// </summary>
+        /// <value>The id_string.</value>
+        public string id_string { get; set; }
+        /// <summary>
         /// Gets or sets the task_count.
         /// </summary>
         /// <value>The task_count.</value>

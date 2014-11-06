@@ -148,7 +148,7 @@ namespace zohoprojects.api
         /// <returns>Defaultfields.</returns>
         public Defaultfields GetDefaultfields(string project_id)
         {
-            string url = getBaseUrl() + "/projects/" + project_id + "/defaultfields/";
+            string url = getBaseUrl() + "/projects/" + project_id + "/bugs/defaultfields/";
             var responce = ZohoHttpClient.get(url, getQueryParameters());
             return responce.Content.ReadAsAsync<BugParser>().Result.defaultfields;
         }
@@ -159,7 +159,7 @@ namespace zohoprojects.api
         /// <returns>List{Customfield}.</returns>
         public List<Customfield> GetCustomfields(string project_id)
         {
-            string url = getBaseUrl() + "/projects/" + project_id + "/customfields/";
+            string url = getBaseUrl() + "/projects/" + project_id + "/bugs/customfields/";
             var responce = ZohoHttpClient.get(url, getQueryParameters());
             return responce.Content.ReadAsAsync<BugParser>().Result.customfields;
         }

@@ -28,7 +28,7 @@ namespace zohoprojects.model
         /// Gets or sets the identifier.
         /// </summary>
         /// <value>The identifier.</value>
-        public long id { get; set; }
+        public string id { get; set; }
         /// <summary>
         /// Gets or sets the name.
         /// </summary>
