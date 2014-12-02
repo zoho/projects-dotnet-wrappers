@@ -39,7 +39,7 @@ namespace zohoprojects.util
             HttpClient client = new HttpClient();
             client.Timeout = new TimeSpan(0, 0, 60);
             client.DefaultRequestHeaders.Add("Accept-Charset", "UTF-8");
-            client.DefaultRequestHeaders.Add("User-Agent", "ZohoBooks-dotnet-Wrappers/1.0");
+            client.DefaultRequestHeaders.Add("User-Agent", "ZohoProjects-dotnet-Wrappers/1.0");
             return client;
         }
          /// <summary>
